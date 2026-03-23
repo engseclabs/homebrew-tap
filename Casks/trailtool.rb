@@ -3,7 +3,7 @@ cask "trailtool" do
   name "trailtool"
   desc "CLI for querying precomputed CloudTrail data — people, sessions, roles, services, resources"
   homepage "https://github.com/engseclabs/trailtool"
-  version "0.2.0"
+  version "0.4.0"
 
   livecheck do
     skip "Auto-generated on release."
@@ -14,23 +14,32 @@ cask "trailtool" do
   on_macos do
     on_intel do
       url "https://github.com/engseclabs/trailtool/releases/download/v#{version}/trailtool_#{version}_darwin_amd64.tar.gz"
-      sha256 "9642a43d15e7e805240869179920367d94e7cc8998abd646022002f368be3833"
+      sha256 "763cc4e0bb70ca91262e3957825a627b981267d9f9a8856ec40ad562713ab39e"
     end
     on_arm do
       url "https://github.com/engseclabs/trailtool/releases/download/v#{version}/trailtool_#{version}_darwin_arm64.tar.gz"
-      sha256 "883db179458a90c475508cdc5a5aea2a15a8127d36cc3d84f9f925b072bb4573"
+      sha256 "09b3d0a2f4ae869ce69e7a627ecaa63bc38fba2d21a9187f5dd4ba5ee80dc54c"
     end
   end
 
   on_linux do
     on_intel do
       url "https://github.com/engseclabs/trailtool/releases/download/v#{version}/trailtool_#{version}_linux_amd64.tar.gz"
-      sha256 "f8cfa9303ffd0d5720582f542280e05aaa87694fb414f8673c440b7287df42b3"
+      sha256 "34a17db66ea03e84a2fd4cd3e9906623bfb2540a37a38a2a6003cba9ed811977"
     end
     on_arm do
       url "https://github.com/engseclabs/trailtool/releases/download/v#{version}/trailtool_#{version}_linux_arm64.tar.gz"
-      sha256 "85ec9ba698be514d73f65d051a95fce98fac7099980df1e1abf553b0b1b6925c"
+      sha256 "4b7bbe719415a7bd072731e19ccf72cebac2613387a4647a736a7adb9c9c74e2"
     end
+  end
+
+  postflight do
+    system_command "/usr/bin/xattr", args: ["-dr", "com.apple.quarantine", "#{staged_path}/trailtool"]
+  end
+
+  caveats do
+    "trailtool is not yet code-signed. macOS may block it on first run."
+    "If that happens, run: xattr -d com.apple.quarantine $(which trailtool)"
   end
 
   # No zap stanza required
