@@ -3,7 +3,7 @@ cask "trailtool" do
   name "trailtool"
   desc "CLI for querying precomputed CloudTrail data — people, sessions, roles, services, resources"
   homepage "https://github.com/engseclabs/trailtool"
-  version "0.5.0"
+  version "0.6.0"
 
   livecheck do
     skip "Auto-generated on release."
@@ -14,22 +14,22 @@ cask "trailtool" do
   on_macos do
     on_intel do
       url "https://github.com/engseclabs/trailtool/releases/download/v#{version}/trailtool_#{version}_darwin_amd64.tar.gz"
-      sha256 "25da37d47aa87e52d024b75211f91c86fb1e0a7d3b223b9c8f8ce9b806441f8f"
+      sha256 "cb32002c4f42975df04b9f7ac5c14c51be84e08d6c4590b8463aef74d10f27ee"
     end
     on_arm do
       url "https://github.com/engseclabs/trailtool/releases/download/v#{version}/trailtool_#{version}_darwin_arm64.tar.gz"
-      sha256 "ae416f96ecfa4a0da67d58cf8fd91a94771a414e1c981694d7ecc6bc63c929df"
+      sha256 "68ba1afbbfa4ecf8199a8aa581836ae2b2291b435dd7dcaf27d9f8ccc7ba7cb2"
     end
   end
 
   on_linux do
     on_intel do
       url "https://github.com/engseclabs/trailtool/releases/download/v#{version}/trailtool_#{version}_linux_amd64.tar.gz"
-      sha256 "f368c58ac15bbea3bb8a66d008a07e577fed4ea4703146be482f7c64174a5ccc"
+      sha256 "02313c164fd915f32fd02f931bbb5403e6bfdbd6348b3ff624f5975294ac4f49"
     end
     on_arm do
       url "https://github.com/engseclabs/trailtool/releases/download/v#{version}/trailtool_#{version}_linux_arm64.tar.gz"
-      sha256 "9f1c72becac72f27cca8f86475ad9deb9c09661c6e60bfe104839178041d9cff"
+      sha256 "378e1fb905e6559b2bd4b4dded446f997f4422fe217e017a47bf77f8fe2359bf"
     end
   end
 
